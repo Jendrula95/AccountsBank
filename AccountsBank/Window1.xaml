@@ -1,0 +1,31 @@
+﻿<Window x:Class="AccountsBank.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountsBank"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid GotFocus="Grid_GotFocus">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="137*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="22*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="ListAccounts" HorizontalAlignment="Left" Height="153" Margin="155,64,0,0" VerticalAlignment="Top" Width="420" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_SelectionChanged" Grid.Column="2"/>
+        <Button x:Name="AddAccount" Grid.Column="2" Content="Dodaj nowe konto" HorizontalAlignment="Left" Margin="155,35,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="120" Click="AddAccount_Click" MouseDoubleClick="AddAccount_MouseDoubleClick"/>
+        <Button x:Name="RemoveAccount" Grid.Column="2" Content="Usuń konto" HorizontalAlignment="Left" Margin="295,35,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="120"/>
+        <Button x:Name="ShowHistoryTransaction" Grid.Column="2" Content="Pokaż Historie Płatności" HorizontalAlignment="Left" Margin="435,35,0,0" Grid.Row="1" VerticalAlignment="Top" Width="140" Height="35" Click="ShowHistoryTransaction_Click"/>
+        <Button x:Name="DepositMoney" Grid.Column="2" Content="Wpłać środki" HorizontalAlignment="Left" Margin="155,100,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="30" Click="DepositMoney_Click"/>
+        <Button x:Name="WithDrawMoney" Grid.Column="2" Content="Wypłać środki" HorizontalAlignment="Left" Margin="295,100,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="30" Click="WithDrawMoney_Click" MouseDoubleClick="WithDrawMoney_MouseDoubleClick"/>
+
+
+    </Grid>
+
+</Window>

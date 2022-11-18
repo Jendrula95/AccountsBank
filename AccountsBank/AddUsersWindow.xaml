@@ -1,0 +1,17 @@
+﻿<Window x:Class="AccountsBank.AddUsersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountsBank"
+        mc:Ignorable="d"
+        Title="AddUsersWindow" Height="250" Width="315">
+    <Grid>
+        <Label Content="Imie : " HorizontalAlignment="Left" Margin="70,69,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Content="Nazwisko " HorizontalAlignment="Left" Margin="70,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,0.194" Width="65"/>
+        <TextBox x:Name="NameUser" HorizontalAlignment="Left" Margin="119,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SurnameUser" HorizontalAlignment="Left" Margin="140,122,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Button Content="Dodaj&#xD;&#xA;" HorizontalAlignment="Left" Margin="119,174,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="Button_Click"/>
+
+    </Grid>
+</Window>
