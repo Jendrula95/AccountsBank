@@ -1,0 +1,20 @@
+﻿<Window x:Class="AccountsBank.AddNewAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountsBank"
+        mc:Ignorable="d"
+        Title="AddNewAccountWindow" Height="245" Width="405">
+    <Grid>
+        <Button x:Name="AddNewAccount" Content="Dodaj nowe konto" HorizontalAlignment="Left" Margin="50,154,0,0" VerticalAlignment="Top" Width="120" Click="AddNewAccount_Click"/>
+        <Button x:Name="Cancel" Content="Powrót" HorizontalAlignment="Left" Margin="240,154,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.379,0.002" Width="120" Click="Cancel_Click"/>
+        <ComboBox x:Name="chooseCurrency" HorizontalAlignment="Left" Margin="110,74,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="chooseCurrency_SelectionChanged">
+            <ComboBoxItem Content="PLN"/>
+            <ComboBoxItem Content="EUR"/>
+            <ComboBoxItem Content="USD"/>
+            <ComboBoxItem Content="GBP"/>
+        </ComboBox>
+
+    </Grid>
+</Window>

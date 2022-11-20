@@ -7,11 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="325" Width="470">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions >
 
             <ColumnDefinition Width="61*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox x:Name="ClientsList" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="183" Margin="45,34,0,0" VerticalAlignment="Top" Width="390" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_SelectionChanged" MouseDoubleClick="ListBox_MouseDoubleClick"/>
+        </Grid.ColumnDefinitions >
+        <ListBox x:Name="ClientsList"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="183" Margin="45,34,0,0" VerticalAlignment="Top" Width="390"
+                 d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_SelectionChanged" MouseDoubleClick="ListBox_MouseDoubleClick" Visibility="Visible" IsSynchronizedWithCurrentItem="True"
+                  />
         <Button Content="Dodaj Użytkownika" HorizontalAlignment="Left" Height="35" Margin="55,239,0,0" VerticalAlignment="Top" Width="155" Click="Button_Click" Grid.ColumnSpan="2"/>
         <Button Content="Usuń użytkownika" HorizontalAlignment="Left" Height="35" Margin="240,239,0,0" VerticalAlignment="Top" Width="170" Click="Button_Click_1"/>
 

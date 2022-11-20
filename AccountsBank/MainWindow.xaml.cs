@@ -23,14 +23,32 @@ namespace AccountsBank
     public partial class MainWindow : Window
     {
         BankUsers m_users;
+
+        private static Dictionary<string, double> m_currencyMultiplers = new Dictionary<string, double>();
+
+       public static double CurrencyMultipler(string from, string to)
+        {
+            double retVal = 0;
+
+            if(m_currencyMultiplers.ContainsKey(from+to))
+                retVal = m_currencyMultiplers[from+to];
+            return retVal;
+        }
        
         public MainWindow()
         {
             InitializeComponent();
             m_users = new BankUsers();
             m_users.AddUser("Adam", " Malysz", 1);
-            m_users.AddUser("Adam", " Malysz2", 2);
-            m_users.AddUser("Adam", " Malysz3", 3);
+
+            m_currencyMultiplers.Add("PLNEUR", 0.2);
+            m_currencyMultiplers.Add("EURPLN", 5);
+            m_currencyMultiplers.Add("PLNUSD", 0.17);
+            m_currencyMultiplers.Add("USDPLN", 4.73);
+            m_currencyMultiplers.Add("PLNGBP", 5);
+            m_currencyMultiplers.Add("GBPPLN", 0.2);
+
+
 
             ClientsList.ItemsSource = m_users.users;
          
@@ -68,68 +86,7 @@ namespace AccountsBank
         }
     }
 
-    public class BankUsers
-    {
-        public BindingList<BankUser> users;
-
-        public BankUsers()
-        {
-            users = new BindingList<BankUser>();
-        }
-
-        public bool AddUser(string Name, string Surname, long ID, string currency = "PLN")
-        {
-            BankUser user = new BankUser(Name, Surname, ID, currency);
-
-            users.Add(user);
-
-            return true;
-
-        }
-
-        public bool RemoveUser(string Name, String Surname)
-        {
-            bool retVal = false;
-            foreach (var user in users)
-            {
-                if (user.Imie == Name && user.Nazwisko == Surname)
-                {
-                    users.Remove(user);
-                    retVal = true;
-                }
-
-            }
-            return retVal;
-
-        }
-
-    }
-
-    public class BankUser
-    {
-        public string Imie { get; }
-        public string Nazwisko { get; }
-        public long ID { get; }
-        public override string ToString()
-        {
-            return Imie.ToString() +" " + Nazwisko.ToString();
-        }
-
-        public BankUser(string Name, string Surname, long ID, string currency)
-        {
-            Imie = Name;
-            Nazwisko = Surname;
-            accountsList = new BindingList<Account>();
-
-
-            string nrKonta = Account.GenerateAccountNr();
-            Account defaultAccount = new Account(nrKonta, currency);
-            accountsList.Add(defaultAccount);
-
-
-        }
-
-        public BindingList<Account> accountsList;
-    }
+   
+   
     
 }

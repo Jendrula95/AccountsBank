@@ -19,13 +19,23 @@ namespace AccountsBank
     public class Account
     {
 
-        const string withDrawString = "Pobrano z konta";
-        const string incomeString = "Wplacono na konto";
+        const string withDrawString = "Pobrano z konta nr: ";
+        const string incomeString = "Wplacono na konto nr: ";
         const string afterSaldoString = "Saldo po operacji";
+
         private string cashCurrency;
         private double cashValue;
 
         public BindingList<string> accountHistory { get; }
+
+        public double getAccoutValue()
+        {
+            return cashValue;
+        }
+        public string getAccountCurrency()
+        {
+            return cashCurrency;
+        }
 
         public const string BankID = "44";
 
@@ -38,7 +48,7 @@ namespace AccountsBank
             Random rnd = new Random();
             for (int j = 0; j < 24; j++)
             {
-                AccountNr += j;
+                AccountNr += rnd.Next(9);
             }
             return AccountNr;
         }
@@ -63,9 +73,9 @@ namespace AccountsBank
 
         public void AddCash(double aValToAdd)
         {
-
-            accountHistory.Insert(0, DateTime.Now + ": " + incomeString + ": " + aValToAdd + "." + afterSaldoString + ": ");
             cashValue += aValToAdd;
+            accountHistory.Insert(0, DateTime.Now + ": " + incomeString + this.NumerKonta +" : "  + aValToAdd +" " +cashCurrency  + "." + afterSaldoString + ": " + cashValue  + cashCurrency);
+           
         }
 
         public bool WithDraw(double aValToGet)
@@ -76,7 +86,7 @@ namespace AccountsBank
             {
                 cashValue -= aValToGet;
                 //accountHistory.Insert(0, DateTime.Now + ": " + withDrawString + " : " + aValToGet + cashCurrency + ". " + afterSaldoString + ": " + cashValue + cashCurrency + ".");
-                accountHistory.Insert(0, DateTime.Now + ": " + withDrawString + " : " + aValToGet + cashCurrency + ". " + afterSaldoString + ": " + cashValue + cashCurrency + ".");
+                accountHistory.Insert(0, DateTime.Now + ": " + withDrawString + this.NumerKonta + " : " + aValToGet + cashCurrency + ". " + afterSaldoString + ": " + cashValue + cashCurrency + ".");
             }
             else
             {
@@ -95,8 +105,6 @@ namespace AccountsBank
         {
             return accountHistory;
         }
-
-
-
+      
     }
 }

@@ -1,0 +1,28 @@
+﻿<Window x:Class="AccountsBank.InterTransferWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountsBank"
+        mc:Ignorable="d"
+        Title="InterTransferWindow" Height="450" Width="800">
+    <Grid Height="434" VerticalAlignment="Bottom" RenderTransformOrigin="0.506,0.516">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+
+        </Grid.RowDefinitions>
+        <TextBox x:Name="TransferValue" HorizontalAlignment="Left" Margin="190,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" TextChanged="TransferValue_TextChanged"/>
+        <Label Content="Wprowadź kwote :" HorizontalAlignment="Left" Margin="65,233,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="TransferButton" Content="Przelej" HorizontalAlignment="Left" Margin="120,289,0,0" VerticalAlignment="Top" Width="110" Click="TransferButton_Click"/>
+        <ComboBox x:Name="FromListAccount" HorizontalAlignment="Left" Margin="60,80,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="FromListAccount_SelectionChanged"/>
+        <ComboBox x:Name="ToListAccount" HorizontalAlignment="Left" Margin="60,172,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="ToListAccount_SelectionChanged"/>
+        <Label Content="Z Konta:" HorizontalAlignment="Left" Margin="69,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.937,0.77"/>
+        <Label Content="Na Konto:" HorizontalAlignment="Left" Margin="60,128,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

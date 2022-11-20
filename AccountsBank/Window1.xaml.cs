@@ -21,6 +21,7 @@ namespace AccountsBank
     public partial class Window1 : Window
     {
         private BankUser m_user;
+       
         public Window1(string ElementName, string ElementSurname)
         {
             InitializeComponent();
@@ -47,7 +48,11 @@ namespace AccountsBank
 
         private void AddAccount_Click(object sender, RoutedEventArgs e)
         {
-            
+            AddNewAccountWindow addNew = new AddNewAccountWindow(m_user.accountsList);
+            addNew.ShowDialog();
+            m_user.accountsList.ResetBindings();
+
+
         }
 
         private void WithDrawMoney_Click(object sender, RoutedEventArgs e)
@@ -62,6 +67,7 @@ namespace AccountsBank
         private void AddAccount_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
            
+
         }
 
         private void WithDrawMoney_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -78,6 +84,7 @@ namespace AccountsBank
 
         private void ShowHistoryTransaction_Click(object sender, RoutedEventArgs e)
         {
+           
             var selectedItem = (Account)this.ListAccounts.SelectedItem;
             PaymentHistoryWindow ph = new PaymentHistoryWindow(selectedItem.accountHistory);
             ph.Show();
@@ -85,6 +92,31 @@ namespace AccountsBank
 
         private void Grid_GotFocus(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ListAccounts_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void RemoveAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Account removeAccount =  (Account)ListAccounts.SelectedItem;
+            m_user.accountsList.Remove(removeAccount);
+            m_user.accountsList.ResetBindings();
+        }
+
+        private void TransferFunds_Click(object sender, RoutedEventArgs e)
+        {
+            var transferList = m_user.accountsList;
+            InterTransferWindow transferWindow = new InterTransferWindow(transferList);
+            transferWindow.ShowDialog();
+            m_user.accountsList.ResetBindings();
         }
     }
    

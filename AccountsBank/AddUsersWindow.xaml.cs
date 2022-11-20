@@ -17,6 +17,8 @@ namespace AccountsBank
     /// <summary>
     /// Logika interakcji dla klasy AddUsersWindow.xaml
     /// </summary>
+    /// 
+  
     public partial class AddUsersWindow : Window
     {
         BankUsers m_users;
